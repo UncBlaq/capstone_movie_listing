@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  caps_db:
+    image: postgres:13
+    restart: always
+    environment:
+      - POSTGRES_DB=app
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=supersecretpassword
+    container_name: caps_db
+    ports:
+      - "5432:5432"
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: caps_api
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    env_file: .env
+    depends_on:
+      - caps_db
