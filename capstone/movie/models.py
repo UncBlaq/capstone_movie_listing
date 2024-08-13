@@ -17,7 +17,7 @@ class Movie(Base):
    
     owner = relationship("User", back_populates="movies")
     ratings = relationship("Rating", back_populates="movies")
-    comments = relationship("Comment", back_populates="movies")
+    comments = relationship("Comment", back_populates="movies", cascade="all, delete-orphan")
 
 class Rating(Base):
     __tablename__ = "ratings"
