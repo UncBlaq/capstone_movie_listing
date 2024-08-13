@@ -195,10 +195,10 @@ def comment(db : db_dependency, payload : CommentSchema,  current_user : Login =
     return new_comment
 
 
-def fetch_comments(db : db_dependency, comment_id : int, offset : int = 0, limit : int =10):
-    logger.info(f"Fetching comments for movie with ID={comment_id}")
-    comments = db.query(CommentModel).filter(CommentModel.movie_id == comment_id).offset(offset).limit(limit).all()
-    logger.info(f"Found {len(comments)} comments for movie with ID={comment_id}.")
+def fetch_comments(db : db_dependency, movie_id : int, offset : int = 0, limit : int =10):
+    logger.info(f"Fetching comments for movie with ID={movie_id}")
+    comments = db.query(CommentModel).filter(CommentModel.movie_id == movie_id).offset(offset).limit(limit).all()
+    logger.info(f"Found {len(comments)} comments for movie with ID={movie_id}.")
     return comments
 
 def reply_to_comment(db : db_dependency, payload : ReplyComment,  current_user : Login = Depends(get_current_user)):

@@ -97,14 +97,14 @@ def comment(db : db_dependency, payload : CommentSchema,  current_user : Login =
     """
     return crud.comment(db, payload, current_user)
 
-@movie_router.get("/{comment_id}/comments")
-def fetch_comments(db : db_dependency, comment_id : int):
+@movie_router.get("/{movie_id}/comments")
+def fetch_comments(db : db_dependency, movie_id : int):
     """
     ## Get comments for a movie by id
     This fetches comments for a movie by its id and can be accessed by the public
     """
 
-    return crud.fetch_comments(db, comment_id)
+    return crud.fetch_comments(db, movie_id)
 
 @movie_router.post("/{comment_id}/reply")
 def reply_to_comment(db : db_dependency, payload : ReplyComment,  current_user : Login = Depends(get_current_user)):
