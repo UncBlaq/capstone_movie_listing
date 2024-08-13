@@ -196,6 +196,14 @@ def comment(db : db_dependency, payload : CommentSchema,  current_user : Login =
 
 
 def fetch_comments(db : db_dependency, movie_id : int, offset : int = 0, limit : int =10):
+    movie = MovieService.fetch_movie(db, movie_id)
+    if movie is None:
+        logger.error(f"Movie with ID {movie_id} not found.")
+        raise HTTPException(
+            status_code = status.HTTP_404_NOT_FOUND,
+            detail = "Movie not found"
+        )
+
     logger.info(f"Fetching comments for movie with ID={movie_id}")
     comments = db.query(CommentModel).filter(CommentModel.movie_id == movie_id).offset(offset).limit(limit).all()
     logger.info(f"Found {len(comments)} comments for movie with ID={movie_id}.")
