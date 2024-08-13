@@ -40,7 +40,6 @@ Diagram:
 ![Architecture Diagrams](./Assets/image1.png)
 ![Architecture Diagrams](./Assets/image2.png)
 
-9039439984
 
 User Instructions
 To interact with the API:
