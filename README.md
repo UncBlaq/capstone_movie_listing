@@ -45,9 +45,9 @@ User Instructions
 To interact with the API:
 
 Explore the Deployed API:
-Visit the deployed API here (Replace with your Render link).
+Visit the deployed API here => https://capstone-movie-listing-2.onrender.com/docs#/.
 API Documentation:
-Access Swagger documentation directly at /docs (e.g., https://your-app-url/docs).
+Access Swagger documentation directly at https://capstone-movie-listing-2.onrender.com/docs#/.
 Authentication Flow:
 Register a new user
 Log in to receive a JWT token
@@ -83,6 +83,7 @@ Planned Features:
 
 Add video streaming capabilities.
 Implement a "like" feature for movies and comments.
+
 Acknowledgements
 Writing Better Functions => https://youtu.be/yatgY4NpZXE?si=y8BZXcnqh3S_f6r7
 Connecting PostgreSQL Efficiently => https://youtu.be/398DuQbQJq0?si=8ey60aTKwox61bSZ
